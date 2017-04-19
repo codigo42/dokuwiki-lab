@@ -77,85 +77,72 @@ Para saber mais sobre espaços de nomes, visite [[doku>namespaces]].
 Observações:
 
   * Links para [[sintaxe|páginas existentes]] aparecem diferente de links para [[páginas inexistentes]].
-  * DokuWiki não usa o padrão [wp>CamelCase]] (CaixaCamelo, com MaiúsculasNoMeio) para criar links, a menos que você habilite este padrão no arquivo [[doku>config]]. Dica: se DokuWiki está aparecendo como um link, então o padrão está habilitado.
+  * DokuWiki não usa o padrão [[wp>CamelCase]] (CaixaCamelo, com MaiúsculasNoMeio) para criar links, a menos que você habilite este padrão no arquivo [[doku>config]]. Dica: se DokuWiki está aparecendo como um link, então o padrão está habilitado.
   * Quando o título de uma seção muda, sua identificação muda também, e isso pode quebrar links. Portanto, não utilize demais o recurso de links para seções.
 
 ==== Interwiki ====
 
-DokuWiki supports [[doku>Interwiki]] links. These are quick links to other Wikis. For example this is a link to Wikipedia's page about Wikis: [[wp>Wiki]].
+DokuWiki suporta links [[doku>Interwiki]]. Estes são links abreviados para outros Wikis.
+Por exemplo, este é um link para a página da Wikipédia em inglês sobre Wikis: [[wp>Wiki]].
 
-  DokuWiki supports [[doku>Interwiki]] links. These are quick links to other Wikis.
-  For example this is a link to Wikipedia's page about Wikis: [[wp>Wiki]].
+  DokuWiki suporta links [[doku>Interwiki]]. Estes são links abreviados para outros Wikis.
+  Por exemplo, este é um link para a página da Wikipédia em inglês sobre Wikis: [[wp>Wiki]].
 
-==== Windows Shares ====
+==== Links com imagens ====
 
-Windows shares like [[\\server\share|this]] are recognized, too. Please note that these only make sense in a homogeneous user group like a corporate [[wp>Intranet]].
-
-  Windows Shares like [[\\server\share|this]] are recognized, too.
-
-Notes:
-
-  * For security reasons direct browsing of windows shares only works in Microsoft Internet Explorer per default (and only in the "local zone").
-  * For Mozilla and Firefox it can be enabled through different workaround mentioned in the [[http://kb.mozillazine.org/Links_to_local_pages_do_not_work|Mozilla Knowledge Base]]. However, there will still be a JavaScript warning about trying to open a Windows Share. To remove this warning (for all users), put the following line in ''conf/lang/en/lang.php'' (more details at [[doku>localization#changing_some_localized_texts_and_strings_in_your_installation|localization]]): <code - conf/lang/en/lang.php>
-<?php
-/**
- * Customization of the english language file
- * Copy only the strings that needs to be modified
- */
-$lang['js']['nosmblinks'] = '';
-</code>
-
-==== Image Links ====
-
-You can also use an image to link to another internal or external page by combining the syntax for links and [[#images_and_other_files|images]] (see below) like this:
+Você também pode criar um link em uma imagem, apontando para uma página interna ou externa, combinando a sintaxe de links com a sintaxe de [[#imagens_e_outros_arquivos|imagens]] (ver abaixo). Por exemplo:
 
   [[http://php.net|{{wiki:dokuwiki-128.png}}]]
 
 [[http://php.net|{{wiki:dokuwiki-128.png}}]]
 
-Please note: The image formatting is the only formatting syntax accepted in link names.
+Nota: a formatação de imagens é a única sintaxe de formatação que pode ser usada dentro de nomes de links.
 
-The whole [[#images_and_other_files|image]] and [[#links|link]] syntax is supported (including image resizing, internal and external images and URLs and interwiki links).
+Toda a sintaxe de [[#imagens_e_outros_arquivos|imagens]] e [[#links|links]] pode ser usada, incluindo redimensionamento de imagens, links interwiki, e links ou imagens internas e externas.
 
-===== Footnotes =====
 
-You can add footnotes ((This is a footnote)) by using double parentheses.
+==== Pastas no Windows ====
 
-  You can add footnotes ((This is a footnote)) by using double parentheses.
+Também é possível fazer links para pastas compartilhadas no Windows. Detalhes em [[doku>Syntax#Windows shares]].
 
-===== Sectioning =====
+===== Notas de rodapé =====
 
-You can use up to five different levels of headlines to structure your content. If you have more than three headlines, a table of contents is generated automatically -- this can be disabled by including the string ''<nowiki>~~NOTOC~~</nowiki>'' in the document.
+Você pode criar notas de rodapé ((Esta é uma nota de rodapé)) usando parênteses duplicados.
 
-==== Headline Level 3 ====
-=== Headline Level 4 ===
-== Headline Level 5 ==
+  Você pode criar notas de rodapé ((Esta é uma nota de rodapé)) usando parênteses duplicados.
 
-  ==== Headline Level 3 ====
-  === Headline Level 4 ===
-  == Headline Level 5 ==
+===== Organização em seções =====
 
-By using four or more dashes, you can make a horizontal line:
+Você pode usar até cinco níveis de seções para organizar seu conteúdo. Se existirem mais do que três seções, um sumário é gerado automaticamente -- isso pode ser desabilitado colocando na página a marcação ''<nowiki>~~NOTOC~~</nowiki>''.
+
+==== Seção nível 3 ====
+=== Seção nível 4 ===
+== Seção nível 5 ==
+
+  ==== Seção nível 3 ====
+  === Seção nível 4 ===
+  == Seção nível 5 ==
+
+Você pode criar uma linha horizontal digitando quatro ou mais hífens:
 
 ----
 
-===== Media Files =====
+===== Arquivos de Mídia =====
 
-You can include external and internal [[doku>images|images, videos and audio files]] with curly brackets. Optionally you can specify the size of them.
+Você pode incluir [[doku>images|imagens, vídeos e arquivos de audio]] com chaves. Opcionalmente, pode especificar o tamanho deles.
 
-Real size:                        {{wiki:dokuwiki-128.png}}
+Tamanho real:                        {{wiki:dokuwiki-128.png}}
 
-Resize to given width:            {{wiki:dokuwiki-128.png?50}}
+Redimencionar em largura:            {{wiki:dokuwiki-128.png?50}}
 
-Resize to given width and height((when the aspect ratio of the given width and height doesn't match that of the image, it will be cropped to the new ratio before resizing)): {{wiki:dokuwiki-128.png?200x50}}
+Redimensionar em largura e altura específica((quando a proporção entre a largura e a altura não bate com a imagem, ela será cortada antes de redimensionar)): {{wiki:dokuwiki-128.png?200x50}}
 
-Resized external image:           {{http://php.net/images/php.gif?200x50}}
+Imagem externa redimensionada:        {{http://php.net/images/php.gif?200x50}}
 
-  Real size:                        {{wiki:dokuwiki-128.png}}
-  Resize to given width:            {{wiki:dokuwiki-128.png?50}}
-  Resize to given width and height: {{wiki:dokuwiki-128.png?200x50}}
-  Resized external image:           {{http://php.net/images/php.gif?200x50}}
-
+  Tamanho real:                                 {{wiki:dokuwiki-128.png}}
+  Redimensionar em largura:                     {{wiki:dokuwiki-128.png?50}}
+  Redimensionar em largura e altura específica: {{wiki:dokuwiki-128.png?200x50}}
+  Imagem externa redimensionada:                {{http://php.net/images/php.gif?200x50}}
 
 By using left or right whitespaces you can choose the alignment.
 
@@ -534,3 +521,23 @@ Some syntax influences how DokuWiki renders a page without creating any output i
 DokuWiki's syntax can be extended by [[doku>plugins|Plugins]]. How the installed plugins are used is described on their appropriate description pages. The following syntax plugins are available in this particular DokuWiki installation:
 
 ~~INFO:syntaxplugins~~
+
+==== Windows Shares ====
+
+Windows shares like [[\\server\share|this]] are recognized, too. Please note that these only make sense in a homogeneous user group like a corporate [[wp>Intranet]].
+
+  Windows Shares like [[\\server\share|this]] are recognized, too.
+
+Notes:
+
+  * For security reasons direct browsing of windows shares only works in Microsoft Internet Explorer per default (and only in the "local zone").
+  * For Mozilla and Firefox it can be enabled through different workaround mentioned in the [[http://kb.mozillazine.org/Links_to_local_pages_do_not_work|Mozilla Knowledge Base]]. However, there will still be a JavaScript warning about trying to open a Windows Share. To remove this warning (for all users), put the following line in ''conf/lang/en/lang.php'' (more details at [[doku>localization#changing_some_localized_texts_and_strings_in_your_installation|localization]]): <code - conf/lang/en/lang.php>
+<?php
+/**
+ * Customization of the english language file
+ * Copy only the strings that needs to be modified
+ */
+$lang['js']['nosmblinks'] = '';
+</code>
+
+
